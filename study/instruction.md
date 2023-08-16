@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 8. `npm i mongoose @types/mongoose`
 
-# 15 Aug
+# 15 Aug(Till 22 Minutes)
 
 1. Create Vendor.ts inside the models
 2. Create interface like this
@@ -98,6 +98,25 @@ const vendorSchema = new Schema({
 const Vendor = mongoose.model<VendorDoc>('vendor', VendorSchema)
 export { Vendor }
 ```
-4. Create the index.ts in config file and add mongouri there. 
 
+4. Create the index.ts in config file and add mongouri there.
 
+# 17 August(till 27:00)
+
+1. In the root index.ts file add the mongo connection code
+
+```
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+}).then(result => {
+    console.log('database connected')
+}).catch(err => console.log('err'+ err))
+```
+
+2. Modify our CreateVendor function like this
+   ![Create vendor](image-2.png)
+
+3. Payload example
+   ![Payload example](image-1.png)

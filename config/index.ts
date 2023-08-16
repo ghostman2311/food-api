@@ -1,0 +1,1 @@
+export const MONGO_URI = 'mongodb+srv://admin:admin@cluster0.vrmsqcv.mongodb.net/food'
