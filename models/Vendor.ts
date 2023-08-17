@@ -31,6 +31,15 @@ const VendorSchema = new Schema(
     rating: { type: String, required: true },
   },
   {
+    toJSON: {
+      transform(doc, ret) {
+        delete ret.password;
+        delete ret.salt;
+        delete ret.createdAt;
+        delete ret.updatedAt;
+        delete ret.__v;
+      }
+    },
     timestamps: true,
   }
 );

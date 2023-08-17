@@ -101,7 +101,7 @@ export { Vendor }
 
 4. Create the index.ts in config file and add mongouri there.
 
-# 17 August(till 27:00)
+# 16 August(till 27:00)
 
 1. In the root index.ts file add the mongo connection code
 
@@ -120,3 +120,16 @@ mongoose.connect(MONGO_URI, {
 
 3. Payload example
    ![Payload example](image-1.png)
+
+# 17 August(completed)
+
+1. Check if vendor existed or not if existed return message accordingly.
+   ![email exist](image-3.png)
+
+2. Now we have to encrypt the password also. To do that we use npm i bcrypt @types/bcrypt
+3. Create two utility functions GenerateSalt and GeneratePassword in PasswordUtility file.
+   ![gen-salt](image-4.png)
+
+4. Store the value in meaning full variable and update the values accordingly.
+5. Now Inside the model delete the unnecassarily values like password and salt.
+   ![remvoing-extra-fields](image-5.png)
