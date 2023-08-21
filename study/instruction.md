@@ -133,3 +133,11 @@ mongoose.connect(MONGO_URI, {
 4. Store the value in meaning full variable and update the values accordingly.
 5. Now Inside the model delete the unnecassarily values like password and salt.
    ![remvoing-extra-fields](image-5.png)
+
+# 21 August(Lecture - 2 (5:30))
+
+1. Return all the vendors in the GetVendor controller
+   ![GetVendors](image-6.png)
+2. Now return the vendor by ID in getVendorByID controller.
+   ![vendorById](image-7.png)
+3.
