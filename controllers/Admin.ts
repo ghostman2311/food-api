@@ -51,14 +51,29 @@ export const CreateVendor = async (
   return res.json(createVendor);
 };
 
-export const GetVendors = (
+export const GetVendors = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {};
+) => {
+  const vendors = await Vendor.find();
+  if (vendors !== null) {
+    return res.json(vendors);
+  }
 
-export const GetVendorById = (
+  return res.json({ message: "Vendor is not present at the moment" });
+};
+
+export const GetVendorById = async (
   req: Request,
   res: Response,
   next: NextFunction
-) => {};
+) => {
+  const vendorId = req.params.id;
+  const vendor = await Vendor.findById(vendorId);
+  if (vendor !== null) {
+    return res.json(vendor);
+  }
+
+  return res.json({ message: "Vendor is not present at the moment" });
+};
