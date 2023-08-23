@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { AdminRoute } from "./routes";
+import { AdminRoute, VendorRoute } from "./routes";
 import { MONGO_URI } from "./config";
 import mongoose from "mongoose";
 
@@ -17,6 +17,7 @@ mongoose
   .catch((err) => console.log("err" + err));
 
 app.use("/admin", AdminRoute);
+app.use("/vendor", VendorRoute)
 
 app.listen(3000, () => {
   console.log("Server has been started");

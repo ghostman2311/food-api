@@ -141,10 +141,19 @@ mongoose.connect(MONGO_URI, {
 2. Now return the vendor by ID in getVendorByID controller.
    ![vendorById](image-7.png)
 
-# 22 August(Lecture - 2 ())
+# 22 August(Lecture - 2 (10:05))
 
 1. We will refactor the findVendor code into one function. It will accept an id and email. If email exist then find vendor using email other id.
    ![utility function](image-8.png)
 2. Create Vendor Login route inside the vendors instead of admin and create controller accordingly.
 3. Create VendorLoginInput interface in vendor dto with email and password types
    ![interface](image-9.png)
+
+# 23 August(Lecture - 2)
+
+1. Inside the VendorLogin controller, Find user by email, If it null return Login credentials not valid.
+2. Create utility function for comparing the password.
+3. If user is not null, check if password is valid or not, if valid return user else return error message
+   ![Vendor-login](image-8.png)
+4. Add new routes and controller for profile.
+5. To identify the user in each request we will be using jsonwebtoken.
