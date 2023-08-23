@@ -1,7 +1,7 @@
 import { Response, Request, NextFunction } from "express";
 import { VendorLoginInput } from "../dto";
 import { findVendor } from "./Admin";
-import { validatePassword } from "../utility";
+import { generateToken, validatePassword } from "../utility";
 
 export const VendorLogin = async (
   req: Request,
@@ -20,7 +20,13 @@ export const VendorLogin = async (
     );
 
     if (isValidPassword) {
-      return res.json(existingVendor);
+      const token = generateToken({
+        _id: existingVendor._id,
+        email: existingVendor.email,
+        name: existingVendor.name,
+        foodTypes: existingVendor.foodType
+      })
+      return res.json(token);
     } else {
       return res.json({ message: "Login credentials is not valid" });
     }
@@ -28,3 +34,8 @@ export const VendorLogin = async (
 
   return res.json({ message: "Login credentials is not valid" });
 };
+
+
+export const GetVendorProfile = (req:Request, res: Response, next: NextFunction) => {
+    
+}

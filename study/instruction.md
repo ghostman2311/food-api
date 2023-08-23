@@ -149,7 +149,9 @@ mongoose.connect(MONGO_URI, {
 3. Create VendorLoginInput interface in vendor dto with email and password types
    ![interface](image-9.png)
 
-# 23 August(Lecture - 2)
+# 23 August(Lecture - 2(20:00))
+
+## Session 1
 
 1. Inside the VendorLogin controller, Find user by email, If it null return Login credentials not valid.
 2. Create utility function for comparing the password.
@@ -157,3 +159,13 @@ mongoose.connect(MONGO_URI, {
    ![Vendor-login](image-8.png)
 4. Add new routes and controller for profile.
 5. To identify the user in each request we will be using jsonwebtoken.
+
+## Session 2
+
+1. Create new interface Vendor payload with these properties \_id, email, name, foodTypes.
+   ![interface](image-9.png)
+2. Create generateSignature utility which will return token
+   ![signature](image-10.png)
+3. While login if password is valid then generate the signature and insteading of returning the user details return the signature.
+4. Create Auth.dto.ts and assign it to the vendor payload
+   ![Auth Payload](image-11.png)

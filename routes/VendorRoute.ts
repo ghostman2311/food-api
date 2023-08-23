@@ -1,9 +1,10 @@
 import express from "express";
-import { VendorLogin } from "../controllers";
+import { GetVendorProfile, VendorLogin } from "../controllers";
 
 const router = express.Router();
 
 router.post('/login', VendorLogin)
+router.get('/profile', GetVendorProfile)
 
 
 export { router as VendorRoute };
