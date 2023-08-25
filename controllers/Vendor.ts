@@ -24,8 +24,8 @@ export const VendorLogin = async (
         _id: existingVendor._id,
         email: existingVendor.email,
         name: existingVendor.name,
-        foodTypes: existingVendor.foodType
-      })
+        foodTypes: existingVendor.foodType,
+      });
       return res.json(token);
     } else {
       return res.json({ message: "Login credentials is not valid" });
@@ -35,7 +35,16 @@ export const VendorLogin = async (
   return res.json({ message: "Login credentials is not valid" });
 };
 
+export const GetVendorProfile = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const user = req.user;
+  if (user) {
+    const existingVendor = await findVendor(user._id);
+    return res.json(existingVendor);
+  }
 
-export const GetVendorProfile = (req:Request, res: Response, next: NextFunction) => {
-    
-}
+  return res.json({ message: "Vendor not found" });
+};

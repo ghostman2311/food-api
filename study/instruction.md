@@ -169,3 +169,19 @@ mongoose.connect(MONGO_URI, {
 3. While login if password is valid then generate the signature and insteading of returning the user details return the signature.
 4. Create Auth.dto.ts and assign it to the vendor payload
    ![Auth Payload](image-11.png)
+
+# 25 August(Lecture - 2 ())
+
+1. Create validateToken utility, in which fetch the Authorization from request.
+2. If signature exist and split it on space and jwt.verify with app secret, assign payload to user and return true
+3. else false.
+   ![validate signature](image-12.png)
+
+4. Create commonAuth middleware in middleware folder.
+5. Inside that declare the namespace i.e assign user to AuthPayload
+   ![interface](image-13.png)
+6. Create Authenticate function, In which call our above validateToken and pass request. If valid then call next() else return not authorized.
+   ![Authenticate](image-14.png)
+7. Create GetVendorProfile controller, fetch user from request. if user is true then return the vendor. else return vendor not found.
+![Get Vendor Profile](image-15.png)
+8. Test it on postman
