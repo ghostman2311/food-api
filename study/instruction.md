@@ -170,7 +170,7 @@ mongoose.connect(MONGO_URI, {
 4. Create Auth.dto.ts and assign it to the vendor payload
    ![Auth Payload](image-11.png)
 
-# 25 August(Lecture - 2 ())
+# 25 August(Lecture - 2 (25:46))
 
 1. Create validateToken utility, in which fetch the Authorization from request.
 2. If signature exist and split it on space and jwt.verify with app secret, assign payload to user and return true
@@ -183,5 +183,15 @@ mongoose.connect(MONGO_URI, {
 6. Create Authenticate function, In which call our above validateToken and pass request. If valid then call next() else return not authorized.
    ![Authenticate](image-14.png)
 7. Create GetVendorProfile controller, fetch user from request. if user is true then return the vendor. else return vendor not found.
-![Get Vendor Profile](image-15.png)
+   ![Get Vendor Profile](image-15.png)
 8. Test it on postman
+
+# 26 August(Lecture - 2(complete))
+
+1. We can use router.use(Authenticate) now we dont' have to use router.post(path, middleware, controller)
+2. Create interface EditVendorInputs, with name, address, phone, foodtypes
+   ![EditVendorInput](image-16.png)
+3. Now create updateVendorProfile. Extract the field we want to change find the vendor if it is not null update the fields and return the saved result.
+![UpdateVendorProfile](image-17.png)
+4. Create route for above controller like this router.patch('/profile')
+5. Create updateVendorService, Similar code to above controller but update the service and return the saved result.
