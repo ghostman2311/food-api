@@ -87,3 +87,16 @@ export const UpdateVendorService = async (
   }
   return res.json({ message: "Vendor not found" });
 };
+
+export const AddFood = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const user = req.user;
+
+  if (user) {
+  }
+
+  return res.json({ message: "Vendor not found" });
+};

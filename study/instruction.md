@@ -192,6 +192,17 @@ mongoose.connect(MONGO_URI, {
 2. Create interface EditVendorInputs, with name, address, phone, foodtypes
    ![EditVendorInput](image-16.png)
 3. Now create updateVendorProfile. Extract the field we want to change find the vendor if it is not null update the fields and return the saved result.
-![UpdateVendorProfile](image-17.png)
+   ![UpdateVendorProfile](image-17.png)
 4. Create route for above controller like this router.patch('/profile')
 5. Create updateVendorService, Similar code to above controller but update the service and return the saved result.
+
+# 28 August(Lecture - 3 (5:00))
+
+1. Create two routes in vendor food and foods and create addFood and getFood controller.
+2. Create Food dto and createFoodInput interface
+   ![Interface](image-18.png)
+3. Create Food Modal, and uncomment the food line from Vendor Modal.
+   ![Food-modal](image-19.png)
+4. Create Food Schema and export it
+   ![food-schema](image-20.png)
+5. 

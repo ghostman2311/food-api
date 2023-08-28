@@ -1,5 +1,5 @@
 import express from "express";
-import { GetVendorProfile, UpdateVendorProfile, UpdateVendorService, VendorLogin } from "../controllers";
+import { AddFood, GetVendorProfile, UpdateVendorProfile, UpdateVendorService, VendorLogin } from "../controllers";
 import { Authenticate } from "../middleware/commonAuth";
 
 const router = express.Router();
@@ -9,5 +9,6 @@ router.use(Authenticate)
 router.get('/profile', GetVendorProfile)
 router.patch('/profile', UpdateVendorProfile)
 router.patch('/service', UpdateVendorService)
+router.patch('/food', AddFood)
 
 export { router as VendorRoute };
