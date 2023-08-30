@@ -2,6 +2,8 @@ import { Response, Request, NextFunction } from "express";
 import { EditVendorInput, VendorLoginInput } from "../dto";
 import { findVendor } from "./Admin";
 import { generateToken, validatePassword } from "../utility";
+import { CreateFoodInput } from "../dto/food.dto";
+import { Food } from "../models/Food";
 
 export const VendorLogin = async (
   req: Request,
@@ -96,6 +98,25 @@ export const AddFood = async (
   const user = req.user;
 
   if (user) {
+    const { name, description, category, foodType, readyTime, price } = <CreateFoodInput>req.body;
+    const vendor = await findVendor(user._id);
+    if (vendor !== null) {
+      const createFood = await Food.create({
+        vendorId: vendor._id,
+        name,
+        description,
+        category,
+        foodType,
+        images: ["mock.jpg"],
+        readyTime,
+        price,
+        rating: 0,
+      });
+
+      vendor.foods.push(createFood);
+      const result = await vendor.save();
+      return res.json(result);
+    }
   }
 
   return res.json({ message: "Vendor not found" });

@@ -9,6 +9,6 @@ router.use(Authenticate)
 router.get('/profile', GetVendorProfile)
 router.patch('/profile', UpdateVendorProfile)
 router.patch('/service', UpdateVendorService)
-router.patch('/food', AddFood)
+router.post('/food', AddFood)
 
 export { router as VendorRoute };

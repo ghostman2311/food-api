@@ -205,4 +205,10 @@ mongoose.connect(MONGO_URI, {
    ![Food-modal](image-19.png)
 4. Create Food Schema and export it
    ![food-schema](image-20.png)
-5. 
+
+
+# 30 August(Lecture - 3 (5:00))
+
+1. Modify the AddFood controller like this 
+![add-food](image-21.png)
+2. When we create vendor pass the food option there.

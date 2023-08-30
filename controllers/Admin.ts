@@ -26,7 +26,7 @@ export const CreateVendor = async (
     foodType,
   } = <CreateVendorInput>req.body;
 
-  const existingVendor = await findVendor('', email);
+  const existingVendor = await findVendor("", email);
   if (existingVendor !== null) {
     return res.json({
       message: "A vendor is already exisitng with this email Id",
@@ -54,6 +54,7 @@ export const CreateVendor = async (
     serviceAvailable: false,
     coverImages: [],
     foodType,
+    foods: [],
   });
   return res.json(createVendor);
 };
