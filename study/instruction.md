@@ -214,6 +214,8 @@ mongoose.connect(MONGO_URI, {
 
 # 5 September(Lecture - 3 (complete))
 
+## Session - 1 
+
 1. Create GetFoods function in vendor controller and create get routes to foods path and test on postman.
    ![getfoods](image-22.png)
 
@@ -230,3 +232,13 @@ mongoose.connect(MONGO_URI, {
    ![Alt text](image-26.png)
 
 7. Just hook up the routes
+
+
+## Session - 2(l-4)
+1. Create ExpressApp.ts and Database.ts in services folder.  
+![ExpressApp](image-27.png)
+2. In similar way add refactor the code to Database.ts
+![Database App](image-28.png)
+3. In index.ts, Refactor the code also
+![Index.ts](image-29.png)
+4. 
