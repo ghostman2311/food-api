@@ -81,8 +81,8 @@ export const UpdateVendorCoverImage = async (req:Request, res:Response, next: Ne
       const files = req.files as [Express.Multer.File]
       const images = files.map((file: Express.Multer.File) => file.filename)
       vendor.coverImages.push(...images)
-      await vendor.save()
-      return res.json(vendor)
+      const result = await vendor.save()
+      return res.json(result)
     }
   }
   return res.json({message: "Vendor not found"})
