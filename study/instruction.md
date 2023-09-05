@@ -206,9 +206,24 @@ mongoose.connect(MONGO_URI, {
 4. Create Food Schema and export it
    ![food-schema](image-20.png)
 
+# 30 August(Lecture - 3 (10:00))
 
-# 30 August(Lecture - 3 (5:00))
-
-1. Modify the AddFood controller like this 
-![add-food](image-21.png)
+1. Modify the AddFood controller like this
+   ![add-food](image-21.png)
 2. When we create vendor pass the food option there.
+
+# 5 September(Lecture - 3 (complete))
+
+1. Create GetFoods function in vendor controller and create get routes to foods path and test on postman.
+   ![getfoods](image-22.png)
+
+2. `npm i multer @types/multer`
+3. import multer in vendor routes and configure the destination and filename.
+   ![multer](image-23.png)
+
+4. In addFood controller, extract files from req.files and extract out the images from files.
+   ![Alt text](image-24.png)
+
+5. In Index js configure the static directory called images 
+![Alt text](image-25.png)
+6. 

@@ -98,16 +98,20 @@ export const AddFood = async (
   const user = req.user;
 
   if (user) {
-    const { name, description, category, foodType, readyTime, price } = <CreateFoodInput>req.body;
+    const { name, description, category, foodType, readyTime, price } = <
+      CreateFoodInput
+    >req.body;
     const vendor = await findVendor(user._id);
     if (vendor !== null) {
+      const files = req.files as [Express.Multer.File]
+      const images = files.map((file: Express.Multer.File) => file.filename)
       const createFood = await Food.create({
         vendorId: vendor._id,
         name,
         description,
         category,
         foodType,
-        images: ["mock.jpg"],
+        images,
         readyTime,
         price,
         rating: 0,
@@ -120,4 +124,21 @@ export const AddFood = async (
   }
 
   return res.json({ message: "Vendor not found" });
+};
+
+export const GetFoods = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const user = req.user;
+
+  if (user) {
+    const foods = await Food.findOne({ vendorId: user._id });
+    if (foods !== null) {
+      return res.json(foods);
+    }
+  }
+
+  return res.json({ message: "Foods information not found" });
 };
