@@ -134,7 +134,7 @@ export const GetFoods = async (
   const user = req.user;
 
   if (user) {
-    const foods = await Food.findOne({ vendorId: user._id });
+    const foods = await Food.find({ vendorId: user._id });
     if (foods !== null) {
       return res.json(foods);
     }
