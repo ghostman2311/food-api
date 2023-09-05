@@ -224,6 +224,9 @@ mongoose.connect(MONGO_URI, {
 4. In addFood controller, extract files from req.files and extract out the images from files.
    ![Alt text](image-24.png)
 
-5. In Index js configure the static directory called images 
-![Alt text](image-25.png)
-6. 
+5. In Index js configure the static directory called images
+   ![Alt text](image-25.png)
+6. Create UpdateVendorCoverImage controller,
+   ![Alt text](image-26.png)
+
+7. Just hook up the routes

@@ -73,6 +73,21 @@ export const UpdateVendorProfile = async (
   return res.json({ message: "Vendor not found" });
 };
 
+export const UpdateVendorCoverImage = async (req:Request, res:Response, next: NextFunction) => {
+  const user = req.user;
+  if(user){
+    const vendor = await findVendor(user._id)
+    if(vendor !== null) {
+      const files = req.files as [Express.Multer.File]
+      const images = files.map((file: Express.Multer.File) => file.filename)
+      vendor.coverImages.push(...images)
+      await vendor.save()
+      return res.json(vendor)
+    }
+  }
+  return res.json({message: "Vendor not found"})
+}
+
 export const UpdateVendorService = async (
   req: Request,
   res: Response,
