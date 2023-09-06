@@ -214,7 +214,7 @@ mongoose.connect(MONGO_URI, {
 
 # 5 September(Lecture - 3 (complete))
 
-## Session - 1 
+## Session - 1
 
 1. Create GetFoods function in vendor controller and create get routes to foods path and test on postman.
    ![getfoods](image-22.png)
@@ -233,12 +233,38 @@ mongoose.connect(MONGO_URI, {
 
 7. Just hook up the routes
 
+## Session - 2(l-4(5))
 
-## Session - 2(l-4)
 1. Create ExpressApp.ts and Database.ts in services folder.  
-![ExpressApp](image-27.png)
+   ![ExpressApp](image-27.png)
 2. In similar way add refactor the code to Database.ts
-![Database App](image-28.png)
+   ![Database App](image-28.png)
 3. In index.ts, Refactor the code also
-![Index.ts](image-29.png)
-4. 
+   ![Index.ts](image-29.png)
+
+# 6 September (Lecture - 4())
+
+1. Create shooping route file and add in app.use
+2. Create the following routes in shoppingRoutes files
+   ![routes](image-30.png)
+3. In getFoodAvalibilty controller inside the shoppingcontroller file,
+
+- Grab pin code from params
+- Find the vendor using pincode and serviceAvailable is true
+- sort by rating and descending and populate foods
+- If result length greater then zero return status code 200 with results else return 400 with no data found
+![Alt text](image-31.png)
+
+4. Create GetTopRestaurants controller
+- Reuse the above code
+- Just change the limit to 1 and rest is same.
+![Alt text](image-32.png)
+
+5. Create GetFoodIn30Mins controller, return all the food which has ready time less than or equal to 30 minutes
+![Alt text](image-34.png)
+
+6. Create SearchFood controller, return all the foods only
+![Alt text](image-35.png)
+
+7. Create RestaurantById controller, populate the food also
+![Alt text](image-36.png)
