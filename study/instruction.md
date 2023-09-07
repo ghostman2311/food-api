@@ -278,4 +278,20 @@ mongoose.connect(MONGO_URI, {
 ![user-routes](image-37.png)
 3. Create Customer Controller.
 ![controller](image-38.png)
-4. 
+4. Creat User dto file and install `class-validator class-transformer`
+5. Check email @IsEmail from class validator, we don't need to add @IsEmpty to phone and password
+![user-dto](image-39.png)
+6. In tsconfig, make strictproperty initialization to false and make experimentalDecorators to true.
+7. we have to use plainToClass from class-transformer in user controller to validate the customer inputs.
+8. Validate the customerInput and store it in inputErrors and If inputErrors length greater than 0 return input errors.
+![Alt text](image-40.png)
+9. Create User Model, otp_expiry should be a date.
+![User Model](image-41.png)
+10. Create User Schema inside the model.
+![UserSchema](image-42.png)
+11. In UserSignUp, generate the salt, and password. Otp should be random number for time being and otp_expiry should be new Date(). Now create the User.
+![UserSignUp](image-43.png)
+12. Create NotificationUtility in utils
+![Generate OTP](image-45.png)
+![Explanation](image-44.png)
+13. 
