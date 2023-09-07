@@ -268,3 +268,14 @@ mongoose.connect(MONGO_URI, {
 
 7. Create RestaurantById controller, populate the food also
 ![Alt text](image-36.png)
+
+
+
+# 7 September (Lecture - 5)
+
+1. Create Customer route setup in index.js
+2. Setup the routes like this signup, login, verify, otp, profile
+![user-routes](image-37.png)
+3. Create Customer Controller.
+![controller](image-38.png)
+4. 
