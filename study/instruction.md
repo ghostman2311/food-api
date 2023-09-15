@@ -294,4 +294,33 @@ mongoose.connect(MONGO_URI, {
 12. Create NotificationUtility in utils
 ![Generate OTP](image-45.png)
 ![Explanation](image-44.png)
-13. 
+
+
+# 8 September (l-5)
+
+1. Install twilio library and create account on twilio
+2. Create onRequestOtp function in utils
+![twilio](image-46.png)
+3. In generateSignature use AuthPayload instead of VendorPayload
+4. Create User payload in user dto
+![User payload](image-47.png)
+5. Modify Customer Signup
+- Send otp to customer
+- Generate token
+- return 201 and signature and other details as response
+![Alt text](image-48.png)
+
+6. Here is updated notificationUtility
+![generateOtp](image-49.png)
+
+
+# 15 September
+1. Add support for exisiting customer in Signup User throw error in response
+![Alt text](image-50.png)
+2. Add authenticate middleware before Customer Verify route.
+![Alt text](image-51.png)
+3. Extract out the otp and user, check if otp is equal to profile.otp and otp expiry is less than current date and time then only make verified to true and again generate signature and send it to response
+![Alt text](image-52.png)
+4. If user doesn't exist then send error
+![Alt text](image-53.png)
+5. Test the route and change expiry condition to >=
